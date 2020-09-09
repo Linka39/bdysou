@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}+'-百度云搜索引擎'"></title>
+    <meta name="description" content="百度云资源搜索网站,百度网盘资源搜索,百度云搜索引擎，百度云开源搜索引擎引擎" />
+    <meta name="keywords" content="百度云搜索,百度网盘搜索,百度云资源搜索,百度网盘资源搜索,百度云搜索引擎,百度云网盘搜索引擎" />
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="header_top" th:include="common/head::#h">
+</div>
+
+<div class="container">
+
+    <div class="row" style="padding-top: 20px;" th:include="common/search::#s"/>
+    <div class="row" th:include="common/nav::#n"/>
+
+    <div class="row" style="padding-top: 15px">
+        <div class="col-md-12">
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="/static/images/newest_list.png"/>
+                    最新资源收录列表
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>资源名称</th>
+                            <th>分享人</th>
+                            <th>分享日期</th>
+                            <th>收录日期</th>
+                        </tr>
+                    </thead>
+                    <tr th:each="article:${articleList}">
+                        <td><a th:href="'article/'+${article.id}" target="_blank" th:title="${article.name}" th:text="${article.name}"></a></td>
+                        <td th:text="${article.shareUser}"></td>
+                        <td th:text="${#strings.substring(article.shareDate,0,10)}"></td>
+                        <td th:text="${article.includeDate}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div align="center">
+        <ul class="pagination pagination-sm" th:utext="${pageCode}"></ul>
+    </div>
+
+    <div th:include="common/foot::#f" style="padding-top: 20px;padding-bottom: 30px" >
+    </div>
+
+</div>
+
+</body>
+</html>
