@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}+'-百度云搜索引擎'"></title>
+    <meta name="description" content="百度云资源搜索网站,百度网盘资源搜索,百度云搜索引擎，百度云开源搜索引擎引擎" />
+    <meta name="keywords" content="百度云搜索,百度网盘搜索,百度云资源搜索,百度网盘资源搜索,百度云搜索引擎,百度云网盘搜索引擎" />
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/static/js/common.js"></script>
+</head>
+<body>
+<div class="header_top" >
+    <div class="w960">
+        <span class="time">百度云搜索引擎-Java相关资源搜索</span>
+        <div class="toplinks">
+            [&nbsp;<a href="/article/list/1" target="_blank"><span>最新资源收录列表</span></a>
+            &nbsp;]&nbsp;[&nbsp;<a href="#" target="_blank"><span style="color:red">linka39</span></a>&nbsp;]
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-12" align="center" style="padding-top: 100px;padding-bottom: 20px" >
+            <a href="/"><img src="/static/images/logo.png" alt="百度云搜索引擎"></a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" align="center" style="padding-top: 0px;">
+            <div class="input-group">
+                <input autocomplete="off" type="text" value="" id="q" name="q" class="form-control input-lg"  placeholder="请输入您想要搜索的资源"
+                       onkeydown="if(event.keyCode==13) submitData()">
+                <span class="input-group-addon btn btn-info" id="search" onclick="submitData()">搜索一下</span>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="w650" style="padding-top: 10px">
+        <ul>
+            <li><font color="red">热门搜索：</font></li>
+            <li>
+                <a href="/search?q=java视频教程" role="button">java视频教程</a>
+            </li>
+            <li>
+                <a href="/search?q=SpringBoot" role="button">SpringBoot</a>
+            </li>
+            <li>
+                <a href="/search?q=SpringCloud" role="button">SpringCloud</a>
+            </li>
+            <li>
+                <a href="/search?q=Mybatis" role="button">Mybatis</a>
+            </li>
+            <li>
+                <a href="/search?q=SSM" role="button">SSM</a>
+            </li>
+            <li>
+                <a href="/search?q=redis" role="button">redis</a>
+            </li>
+            <li>
+                <a href="/search?q=Spark" role="button">Spark</a>
+            </li>
+            <li>
+                <a href="/search?q=vue" role="button">vue</a>
+            </li>
+            <li>
+                <a href="/search?q=elasticsearch" role="button">elasticsearch</a>
+            </li>
+            <li>
+                <a href="/search?q=shiro" role="button">shiro</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row" style="padding-top: 250px;padding-bottom: 30px" >
+        <div class="col-md-12" >
+            <div align="center" style="padding-top: 30px" >
+                Copyright © 2012-2020 百度云搜索引擎 linka39版权所有
+            </div>
+            <br/>
+            <div align="center" >
+                elastic search 练习演示站点
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
