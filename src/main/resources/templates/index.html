@@ -13,14 +13,7 @@
     <script src="/static/js/common.js"></script>
 </head>
 <body>
-<div class="header_top" >
-    <div class="w960">
-        <span class="time">百度云搜索引擎-Java相关资源搜索</span>
-        <div class="toplinks">
-            [&nbsp;<a href="/article/list/1" target="_blank"><span>最新资源收录列表</span></a>
-            &nbsp;]&nbsp;[&nbsp;<a href="#" target="_blank"><span style="color:red">linka39</span></a>&nbsp;]
-        </div>
-    </div>
+<div class="header_top" th:include="common/head::#h">
 </div>
 
 <div class="container">
@@ -46,49 +39,13 @@
     <div class="w650" style="padding-top: 10px">
         <ul>
             <li><font color="red">热门搜索：</font></li>
-            <li>
-                <a href="/search?q=java视频教程" role="button">java视频教程</a>
-            </li>
-            <li>
-                <a href="/search?q=SpringBoot" role="button">SpringBoot</a>
-            </li>
-            <li>
-                <a href="/search?q=SpringCloud" role="button">SpringCloud</a>
-            </li>
-            <li>
-                <a href="/search?q=Mybatis" role="button">Mybatis</a>
-            </li>
-            <li>
-                <a href="/search?q=SSM" role="button">SSM</a>
-            </li>
-            <li>
-                <a href="/search?q=redis" role="button">redis</a>
-            </li>
-            <li>
-                <a href="/search?q=Spark" role="button">Spark</a>
-            </li>
-            <li>
-                <a href="/search?q=vue" role="button">vue</a>
-            </li>
-            <li>
-                <a href="/search?q=elasticsearch" role="button">elasticsearch</a>
-            </li>
-            <li>
-                <a href="/search?q=shiro" role="button">shiro</a>
+            <li th:each="hotSearch:${application.hotSearchList}">
+                <a th:href="'/search?q='+ ${hotSearch.name}" role="button" th:text="${hotSearch.name}"></a>
             </li>
         </ul>
     </div>
 
-    <div class="row" style="padding-top: 250px;padding-bottom: 30px" >
-        <div class="col-md-12" >
-            <div align="center" style="padding-top: 30px" >
-                Copyright © 2012-2020 百度云搜索引擎 linka39版权所有
-            </div>
-            <br/>
-            <div align="center" >
-                elastic search 练习演示站点
-            </div>
-        </div>
+    <div th:include="common/foot::#f">
     </div>
 
 </div>
