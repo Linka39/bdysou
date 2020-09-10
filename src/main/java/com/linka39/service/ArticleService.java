@@ -26,4 +26,11 @@ public interface ArticleService {
      * @return
      */
     public Long getCount();
+
+    /**
+     * 根据id获取实体
+     * @param id
+     * @return
+     */
+    public Article get(Integer id);
 }

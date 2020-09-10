@@ -35,3 +35,37 @@
     padding-left: 10px;
     padding-top: 5px;
 }
+
+.newest{
+    padding-top: 20px;
+}
+
+.data_list{
+    border: 1px solid #E5E5E5;
+    padding: 3px;
+    background-color: #FDFDFD;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.data_list .data_list_title{
+    font-size: 15px;
+    padding-left:3px;
+    border-bottom: 1px solid #E5E5E5;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+.data_list .data_list_title img{
+    margin-top: 1px;
+    vertical-align: top;
+}
+
+
+.data_list .data_details{
+    padding: 20px;
+}
+
+.data_list .data_details .data_row{
+    padding-bottom: 10px;
+}

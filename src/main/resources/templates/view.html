@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}+'-百度云搜索引擎'"></title>
+    <meta name="description" content="百度云资源搜索网站,百度网盘资源搜索,百度云搜索引擎，百度云开源搜索引擎引擎" />
+    <meta name="keywords" content="百度云搜索,百度网盘搜索,百度云资源搜索,百度网盘资源搜索,百度云搜索引擎,百度云网盘搜索引擎" />
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/static/js/clipboard.min.js"></script>
+    <script src="/static/js/common.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            var clipboard = new ClipboardJS('.btn');
+            clipboard.on('success', function(e) {
+                alert("复制成功！");
+                e.clearSelection();//清除选中状态
+            });
+            clipboard.on('error', function(e) {
+                console.log(e);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="header_top" th:include="common/head::#h"/>
+
+<div class="container">
+
+    <div class="row" style="padding-top: 20px;" th:include="common/search::#s"/>
+    <div class="row" th:include="common/nav::#n"/>
+
+    <div class="row" style="padding-top: 15px">
+        <div class="col-md-8">
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="/static/images/resource_show_icon.png"/>
+                    资源详细信息
+                </div>
+                <div class="data_details">
+                    <div class="data_row">
+                        <strong>资源名称：</strong><font th:text="${article.name}"></font>
+                    </div>
+                    <div style="padding-bottom: 8px">
+                        <button type="button" id="clip" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">点击获取资源分享地址</button>
+                    </div>
+
+                    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-sm" role="document" style="width: 500px;margin-top: 300px;">
+                            <div id="bar" class="modal-content" style="padding: 20px">
+                                链接地址：<a th:href="${article.shareUrl}" target="_blank"><font th:text="${article.shareUrl}"></font></a><br/>
+                                提取密码：<font color="red" th:text="${article.password}"></font><br/><br/>
+                                <button type="button" class="btn btn-primary btn-sm" data-clipboard-action="copy" data-clipboard-target="#bar">复制分享链接和提取码</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data_row">
+                        <strong>分享人：</strong><font th:text="${article.shareUser}"></font>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <strong>分享时间：</strong><font th:text="${article.shareDate}"></font>
+                    </div>
+                    <div class="data_row">
+                        <strong>资源内容：</strong><br/>
+                        <p th:utext="${article.content}"></p>
+                    </div>
+                    <div class="data_row">
+                        <strong>免责申明：</strong><br/>
+                        <p>
+                            [ <strong th:text="${article.name}"></strong> ] 由分享人 <strong th:text="${article.shareUser}"></strong> 于 <strong th:text="${article.shareDate}"></strong> 上传到百度网盘。此页面由蜘蛛程序自动抓取，以非人工方式自动生成，只作交流和学习使用。本网站本身不储存任何资源文件，其资源文件的安全性和完整性需要您自行判断，感谢您对本站的支持。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
+    <div th:include="common/foot::#f" style="padding-top: 20px;padding-bottom: 30px" >
+    </div>
+
+</div>
+
+</body>
+</html>
