@@ -42,6 +42,46 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public List<Article> adminList(Article s_article, Integer page, Integer pageSize, Sort.Direction direction, String... properties) {
+        PageRequest pageRequest = PageRequest.of(page - 1, pageSize, direction, properties);
+        Page<Article> articlePage = articleRepository.findAll(new Specification<Article>() {
+            @Override
+            public Predicate toPredicate(Root<Article> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                Predicate predicate=cb.conjunction();
+                if(s_article!=null){
+                    if(s_article.getId()!=null){
+                        predicate.getExpressions().add(cb.equal(root.get("id"),s_article.getId()));
+                    }
+                    if(s_article.getName()!=null){
+                        predicate.getExpressions().add(cb.like(root.get("name"),"%"+s_article.getName()+"%"));
+                    }
+                }
+                return predicate;
+            }
+        }, pageRequest);
+        return articlePage.getContent();
+    }
+
+    @Override
+    public Long getAdminCount(Article s_article) {
+        return articleRepository.count(new Specification<Article>() {
+            @Override
+            public Predicate toPredicate(Root<Article> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                Predicate predicate=cb.conjunction();
+                if(s_article!=null){
+                    if(s_article.getId()!=null){
+                        predicate.getExpressions().add(cb.equal(root.get("id"),s_article.getId()));
+                    }
+                    if(s_article.getName()!=null){
+                        predicate.getExpressions().add(cb.like(root.get("name"),"%"+s_article.getName()+"%"));
+                    }
+                }
+                return predicate;
+            }
+        });
+    }
+
+    @Override
     public Long getCount() {
         return articleRepository.count(new Specification<Article>() {
             @Override
@@ -57,5 +97,15 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Article get(Integer id) {
         return articleRepository.getOne(id);
+    }
+
+    @Override
+    public void save(Article article) {
+        articleRepository.save(article);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        articleRepository.deleteById(id);
     }
 }

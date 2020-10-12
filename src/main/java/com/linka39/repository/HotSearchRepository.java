@@ -5,10 +5,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
 /**
  * 热门搜素Repository接口
- * @author java1234_小锋
- * @site www.java1234.com
- * @company Java知识分享网
- * @create 2019-01-17 下午 9:01
+ * @author linka39
  */
 public interface HotSearchRepository extends JpaRepository<HotSearch,Integer> , JpaSpecificationExecutor<HotSearch> {
 }

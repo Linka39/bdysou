@@ -40,4 +40,14 @@ public class IndexController {
     public String toAdmin(){
         return "/admin/main";
     }
+
+    /**
+     * 去往欢迎画面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/admin/towelcom")
+    public String towelcom(){
+        return "/admin/welcom";
+    }
 }

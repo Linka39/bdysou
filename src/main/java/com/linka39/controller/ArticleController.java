@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 /**
- * 提诶子控制器
+ * 帖子获取控制器
  * @author linka39
  */
 @Controller
