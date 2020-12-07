@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}+'-百度云搜索引擎'"></title>
+    <meta name="description" content="${title}" />
+    <meta name="keywords" content="${title}" />
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/bootstrap3/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/static/css/css.css">
+    <script src="/static/bootstrap3/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/bootstrap3/js/bootstrap.min.js"></script>
+    <script src="/static/js/common.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+</head>
+<body>
+<div class="header_top" th:include="common/head::#h">
+</div>
+
+<div class="container">
+
+    <div class="row" style="padding-top: 20px;" th:include="common/search::#s"/>
+    <div class="row" th:include="common/nav::#n"/>
+
+    <div class="row" style="padding-top: 15px">
+        <div class="col-md-12">
+            <div class="data_list">
+                <div class="data_list_title">
+                    <img src="/static/images/search_icon.png"/>
+                    搜索&nbsp;<font color="red" th:text="${q}"></font>&nbsp;的结果 &nbsp;(总共搜索到&nbsp;<font color="red" th:text="${total}"></font>&nbsp;条记录)
+                </div>
+
+                <div class="search">
+                    <div th:if="${total==0}" align="center" style="padding-top: 20px" >未查询到结果，请换个关键字试试看！</div>
+
+                    <ul>
+                        <li th:each="article:${articleInfoList}" style="margin-bottom: 20px">
+                            <span class="title"><a th:href="'/article/'+${article.id}" target="_blank" th:title="${article.name}" th:utext="${article.name}"></a></span>
+                            <span class="summary" th:utext="'内容摘要'+${article.content}+'...'"></span>
+                        </li>
+                    </ul>
+                </div>
+
+                </div>
+        </div>
+
+        <div align="left" style="padding-left: 40px">
+            <nav>
+                <ul class="pagination pagination-sm" th:utext="${pageCode}"></ul>
+            </nav>
+        </div>
+
+    <div th:include="common/foot::#f" style="padding-top: 20px;padding-bottom: 30px" >
+    </div>
+
+</div>
+</div>
+
+</body>
+</html>

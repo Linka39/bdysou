@@ -23,7 +23,6 @@ public class HotSearchAdminController {
 
     @Autowired
     private HotSearchService hotSearchService;
-
     @Autowired
     private InitSystem initSystem;
 
@@ -88,6 +87,4 @@ public class HotSearchAdminController {
          resultMap.put("success",true);
          return resultMap;
      }
-
-
 }

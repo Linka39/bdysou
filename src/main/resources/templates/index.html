@@ -28,7 +28,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6" align="center" style="padding-top: 0px;">
             <div class="input-group">
-                <input autocomplete="off" type="text" value="" id="q" name="q" class="form-control input-lg"  placeholder="请输入您想要搜索的资源"
+                <input autocomplete="off" type="text" th:value="${q}" id="q" name="q" class="form-control input-lg"  placeholder="请输入您想要搜索的资源"
                        onkeydown="if(event.keyCode==13) submitData()">
                 <span class="input-group-addon btn btn-info" id="search" onclick="submitData()">搜索一下</span>
             </div>

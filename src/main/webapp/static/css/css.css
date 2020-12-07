@@ -69,3 +69,38 @@
 .data_list .data_details .data_row{
     padding-bottom: 10px;
 }
+
+
+.data_list .search{
+    padding-top: 30px;
+}data_details
+
+ .data_list .search ul{
+     list-style-type: none;
+ }
+
+.data_list .search ul li{
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.data_list .search .title{
+    display: block;
+    line-height: 1.5;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    padding-bottom: 5px;
+    font-size: 14px;
+}
+
+.data_list .search .summary{
+    display: block;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    line-height: 19.5px;
+    padding-top: 0px;
+    font-size: 13px;
+    color: rgb(0, 0, 0);
+}
+
+.data_list .search .link{
+
+}

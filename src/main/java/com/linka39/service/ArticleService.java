@@ -1,6 +1,7 @@
 package com.linka39.service;
 
 import com.linka39.entity.Article;
+import com.linka39.entity.es.ArticleInfo;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
@@ -58,9 +59,25 @@ public interface ArticleService {
     public void save(Article article);
 
     /**
-     * 根据id获取实体
+     * 删除指定id
      * @param id
      * @return
      */
     public void delete(Integer id);
+
+    /**
+     * 根据条件分词查询
+     * @param page
+     * @param pageSize
+     * @param searchContent
+     * @return
+     */
+    public List<ArticleInfo> search(Integer page,Integer pageSize,String searchContent);
+
+    /**
+     * 根据条件分词查询总记录数
+     * @param searchContent
+     * @return
+     */
+    public Long searchCount(String searchContent);
 }
